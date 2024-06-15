@@ -24,12 +24,12 @@ static func load_with_key (path: String, key: String = '') -> Resource:
 			
 			
 			var res = ResourceLoader.load(temp)
-			
+			var clone = res.duplicate()	
 			read_file.close()
 			DirAccess.remove_absolute(temp)
 			DirAccess.remove_absolute(temp.get_base_dir())
 			
-			return res
+			return clone
 		else:
 			print('File not found!')
 			
